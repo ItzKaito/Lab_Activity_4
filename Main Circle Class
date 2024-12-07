@@ -1,0 +1,52 @@
+/*
+Frenz Dominic F. Cartajena
+Electronics and Communications - Year 1
+
+Desc: Main file in which the program of Window Panels subside and where the user interacts with the process.
+*/
+package circlecalculator.circle.calculator;
+
+import javax.swing.JOptionPane;
+
+public class CircleCalculator {
+
+    public static void main(String[] args) {
+        boolean loop = true;
+        while (loop == true) {
+            int opt = JOptionPane.showConfirmDialog(null, "Welcome to circle calculator, \nContinue? Selecting 'no' will be redirecting to default results.", "Circle Calculator", JOptionPane.YES_NO_OPTION);
+            if (opt == JOptionPane.YES_OPTION) {
+                String input = JOptionPane.showInputDialog("Enter the radius for the custom circle:");
+                
+                double r = Double.parseDouble(input);
+                Circle circle = new Circle(r);
+                JOptionPane.showMessageDialog(null, 
+                        "\nCustom Circle:"
+                        + "\nArea: " + circle.area() 
+                        + "\nCircumference: " + circle.circumference());
+                
+                int response = JOptionPane.showConfirmDialog(null, "Do you want to perform another calculation?", "Continue?", JOptionPane.YES_NO_OPTION);
+                if (response == JOptionPane.NO_OPTION) {
+                    loop = false;
+                    
+                    
+                }} else if (opt == JOptionPane.NO_OPTION) {
+                    Circle defaultCircle = new Circle();
+                    JOptionPane.showMessageDialog(null, "Default Circle: with an 8.5 value" 
+                            + "\n Area: " + defaultCircle.area() 
+                            + "\n Circumference: " + defaultCircle.circumference());
+                    
+                    int[] radii = {5, 4, 6, 7, 2, 4};
+                    for (int i = 0; i < radii.length; i++) {
+                        JOptionPane.showMessageDialog(null, "Default Circle: with a radius of " 
+                                + radii[i] + "\n Area: " + defaultCircle.arearadii(radii[i]) 
+                                + "\n Circumference: " + defaultCircle.circumradii(radii[i]));
+                    }
+                    int res = JOptionPane.showConfirmDialog(null, "Do you want to perform another calculation?", "Continue?", JOptionPane.YES_NO_OPTION);
+                    if (res == JOptionPane.NO_OPTION) {
+                        loop = false;
+                    }
+                
+            }
+        }
+    }
+}
